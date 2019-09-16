@@ -1,19 +1,17 @@
 package com.cjd.demo_arithmetic.data;
 
 /**
+ * 冒泡排序
+ *
  * @Author chenjidong
  * @data
- * Description:
+ * @Description 比较相邻的元素，如果第一个比第二个大 则交换
  **/
 public class BubbleSort extends BaseSort {
 
-    /**
-     * 冒泡排序
-     *
-     * @param arr        排序数组
-     * @param isOptimize 是否启用优化
-     */
-    public void bubbleSort(int[] arr, boolean isOptimize) {
+
+    @Override
+    public void sort(int[] arr) {
         int count = 0;
 
         for (int i = arr.length - 1; i > 0; i--) {
@@ -27,16 +25,23 @@ public class BubbleSort extends BaseSort {
                 }
             }
             count++;
-            if (getSortCallbackListener() != null) {
-                getSortCallbackListener().onCallback(arr, count);
+            callback(arr, count);
+
+            if (!flag) {
+                break;
             }
-            if (isOptimize) {
-                if (!flag) {
-                    break;
-                }
-            }
+
         }
-        if (getSortCallbackListener() != null)
-            getSortCallbackListener().onFinish(arr);
+        finish(arr);
+    }
+
+    @Override
+    public String desc() {
+        return "比较相邻的元素，如果第一个比第二个大 则交换";
+    }
+
+    @Override
+    public String title() {
+        return "冒泡排序";
     }
 }

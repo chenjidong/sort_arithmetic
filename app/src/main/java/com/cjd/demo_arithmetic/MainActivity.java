@@ -12,8 +12,7 @@ import android.view.View;
 
 /**
  * @Author chenjidong
- * @data
- * Description:
+ * @data Description:
  **/
 public class MainActivity extends AppCompatActivity {
 
@@ -35,7 +34,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void jumpBubbleSort(View view) {
-        startActivity(new Intent(MainActivity.this, BubbleSortActivity.class));
+        Intent intent = new Intent(MainActivity.this, SortActivity.class);
+        intent.putExtra("sort", "bubble");
+        startActivity(intent);
+    }
+
+    public void jumpSelectionSort(View view) {
+        Intent intent = new Intent(MainActivity.this, SortActivity.class);
+        intent.putExtra("sort", "selection");
+        startActivity(intent);
     }
 
     @Override

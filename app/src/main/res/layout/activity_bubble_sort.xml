@@ -6,6 +6,7 @@
     android:padding="8dp">
 
     <TextView
+        android:id="@+id/tv_desc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="比较相邻的元素，第一个比第二个大时，则交换对方" />
@@ -44,7 +45,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:text="启用优化" />
+            android:text="启用优化"
+            android:visibility="gone" />
     </RelativeLayout>
 
     <ListView

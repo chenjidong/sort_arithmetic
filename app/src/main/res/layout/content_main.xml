@@ -16,4 +16,12 @@
         android:text="冒泡排序">
 
     </Button>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="jumpSelectionSort"
+        android:text="选择排序">
+
+    </Button>
 </LinearLayout>

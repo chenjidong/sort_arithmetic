@@ -4,10 +4,9 @@ import java.io.Serializable;
 
 /**
  * @Author chenjidong
- * @data
- * Description:
+ * @data Description:
  **/
-public class BaseSort implements Serializable {
+public abstract class BaseSort implements Serializable {
     private OnSortCallbackListener onSortCallbackListener;
 
     public OnSortCallbackListener getSortCallbackListener() {
@@ -17,6 +16,12 @@ public class BaseSort implements Serializable {
     public void setSortCallbackListener(OnSortCallbackListener onSortCallbackListener) {
         this.onSortCallbackListener = onSortCallbackListener;
     }
+
+    public abstract void sort(int[] arr);
+
+    public abstract String desc();
+
+    public abstract String title();
 
     protected void print(int[] arr) {
 
@@ -32,6 +37,16 @@ public class BaseSort implements Serializable {
             builder.append(value).append(" ");
         }
         return builder.toString();
+    }
+
+    protected void callback(int[] arr, int count) {
+        if (onSortCallbackListener != null)
+            onSortCallbackListener.onCallback(arr, count);
+    }
+
+    protected void finish(int[] arr) {
+        if (onSortCallbackListener != null)
+            onSortCallbackListener.onFinish(arr);
     }
 
     public interface OnSortCallbackListener {

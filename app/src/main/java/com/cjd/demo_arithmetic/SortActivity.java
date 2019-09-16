@@ -3,16 +3,18 @@ package com.cjd.demo_arithmetic;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cjd.demo_arithmetic.data.BaseSort;
 import com.cjd.demo_arithmetic.data.BubbleSort;
+import com.cjd.demo_arithmetic.data.SelectionSort;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,16 +23,18 @@ import java.util.List;
  * @Author chenjidong
  * @data Description:
  **/
-public class BubbleSortActivity extends BaseActivity {
+public class SortActivity extends BaseActivity {
     private TextInputLayout tilNumber;
     private EditText etNumber;
     private Button btnSort;
     private int[] arraySort;
-    private BubbleSort bubbleSort;
+    private BaseSort baseSort;
     private ListView lv;
     private ArrayAdapter<String> arrayAdapter;
     private List<String> list;
-    private CheckBox cb;
+    private String sort;
+    private TextView tvDesc;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -40,28 +44,41 @@ public class BubbleSortActivity extends BaseActivity {
         etNumber = findViewById(R.id.et_number);
         btnSort = findViewById(R.id.btn_sort);
         lv = findViewById(R.id.lv);
-        cb = findViewById(R.id.cb);
+        tvDesc = findViewById(R.id.tv_desc);
+
 
         init();
     }
 
     private void init() {
+
+        sort = getIntent().getStringExtra("sort");
+
+        if (TextUtils.equals("bubble", sort)) {
+            baseSort = new BubbleSort();
+        } else if (TextUtils.equals("selection", sort)) {
+            baseSort = new SelectionSort();
+        }
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(baseSort.title());
+        }
+        tvDesc.setText(baseSort.desc());
         etNumber.setText(Constant.arr);
-        bubbleSort = new BubbleSort();
+
         list = new ArrayList<>();
         arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, list);
         lv.setAdapter(arrayAdapter);
-        bubbleSort.setSortCallbackListener(new BaseSort.OnSortCallbackListener() {
+        baseSort.setSortCallbackListener(new BaseSort.OnSortCallbackListener() {
             @Override
             public void onCallback(int[] arr, int count) {
-                String value = "第：" + count + " 次遍历：" + bubbleSort.toString(arr);
+                String value = "第：" + count + " 次遍历：" + baseSort.toString(arr);
                 list.add(value);
                 arrayAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onFinish(int[] arr) {
-                String value = "结果：" + bubbleSort.toString(arr);
+                String value = "结果：" + baseSort.toString(arr);
                 list.add(value);
                 arrayAdapter.notifyDataSetChanged();
             }
@@ -72,7 +89,7 @@ public class BubbleSortActivity extends BaseActivity {
                 String value = etNumber.getText().toString().trim();
                 String[] arr = value.split("\\.");
                 if (arr.length <= 0) {
-                    Toast.makeText(BubbleSortActivity.this, "请输入有效的数字", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SortActivity.this, "请输入有效的数字", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 arraySort = new int[arr.length];
@@ -86,6 +103,6 @@ public class BubbleSortActivity extends BaseActivity {
 
     private void sort() {
         list.clear();
-        bubbleSort.bubbleSort(arraySort, cb.isChecked());
+        baseSort.sort(arraySort);
     }
 }
