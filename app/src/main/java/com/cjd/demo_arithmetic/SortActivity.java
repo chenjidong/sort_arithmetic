@@ -16,6 +16,7 @@ import com.cjd.demo_arithmetic.data.BaseSort;
 import com.cjd.demo_arithmetic.data.BubbleSort;
 import com.cjd.demo_arithmetic.data.InsertionSort;
 import com.cjd.demo_arithmetic.data.MergeSort;
+import com.cjd.demo_arithmetic.data.QuickSort;
 import com.cjd.demo_arithmetic.data.SelectionSort;
 import com.cjd.demo_arithmetic.data.ShellSort;
 
@@ -66,8 +67,10 @@ public class SortActivity extends BaseActivity {
             baseSort = new InsertionSort();
         } else if (TextUtils.equals("shell", sort)) {
             baseSort = new ShellSort();
-        }else if (TextUtils.equals("merge", sort)) {
+        } else if (TextUtils.equals("merge", sort)) {
             baseSort = new MergeSort();
+        } else if (TextUtils.equals("quick", sort)) {
+            baseSort = new QuickSort();
         }
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle(baseSort.title());

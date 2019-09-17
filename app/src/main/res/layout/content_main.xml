@@ -24,6 +24,7 @@
         android:text="选择排序">
 
     </Button>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -31,6 +32,7 @@
         android:text="插入排序">
 
     </Button>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -44,6 +46,14 @@
         android:layout_height="wrap_content"
         android:onClick="jumpMergeSort"
         android:text="归并排序">
+
+    </Button>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="jumpQuickSort"
+        android:text="快速排序">
 
     </Button>
 </LinearLayout>

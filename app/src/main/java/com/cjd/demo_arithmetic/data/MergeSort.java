@@ -12,6 +12,7 @@ public class MergeSort extends BaseSort {
 
     @Override
     public void sort(int[] arr) {
+        count = 0;
         arr = mergeSort(arr);
         finish(arr);
     }
