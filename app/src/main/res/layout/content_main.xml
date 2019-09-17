@@ -24,4 +24,18 @@
         android:text="选择排序">
 
     </Button>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="jumpInsertionSort"
+        android:text="插入排序">
+
+    </Button>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="jumpShellSort"
+        android:text="希尔排序">
+
+    </Button>
 </LinearLayout>

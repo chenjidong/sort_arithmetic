@@ -45,6 +45,18 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void jumpInsertionSort(View view) {
+        Intent intent = new Intent(MainActivity.this, SortActivity.class);
+        intent.putExtra("sort", "insertion");
+        startActivity(intent);
+    }
+
+    public void jumpShellSort(View view) {
+        Intent intent = new Intent(MainActivity.this, SortActivity.class);
+        intent.putExtra("sort", "shell");
+        startActivity(intent);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

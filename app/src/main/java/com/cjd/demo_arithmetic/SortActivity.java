@@ -14,7 +14,9 @@ import android.widget.Toast;
 
 import com.cjd.demo_arithmetic.data.BaseSort;
 import com.cjd.demo_arithmetic.data.BubbleSort;
+import com.cjd.demo_arithmetic.data.InsertionSort;
 import com.cjd.demo_arithmetic.data.SelectionSort;
+import com.cjd.demo_arithmetic.data.ShellSort;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +24,7 @@ import java.util.List;
 /**
  * @Author chenjidong
  * @data Description:
+ * @link{https://mp.weixin.qq.com/s/xSm4Gutudq1VdKuXGFoDMg}
  **/
 public class SortActivity extends BaseActivity {
     private TextInputLayout tilNumber;
@@ -58,6 +61,10 @@ public class SortActivity extends BaseActivity {
             baseSort = new BubbleSort();
         } else if (TextUtils.equals("selection", sort)) {
             baseSort = new SelectionSort();
+        } else if (TextUtils.equals("insertion", sort)) {
+            baseSort = new InsertionSort();
+        } else if (TextUtils.equals("shell", sort)) {
+            baseSort = new ShellSort();
         }
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle(baseSort.title());
@@ -71,14 +78,14 @@ public class SortActivity extends BaseActivity {
         baseSort.setSortCallbackListener(new BaseSort.OnSortCallbackListener() {
             @Override
             public void onCallback(int[] arr, int count) {
-                String value = "第：" + count + " 次遍历：" + baseSort.toString(arr);
+                String value = "第:" + count + "次遍历:" + baseSort.toString(arr);
                 list.add(value);
                 arrayAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onFinish(int[] arr) {
-                String value = "结果：" + baseSort.toString(arr);
+                String value = "结果:" + baseSort.toString(arr);
                 list.add(value);
                 arrayAdapter.notifyDataSetChanged();
             }
