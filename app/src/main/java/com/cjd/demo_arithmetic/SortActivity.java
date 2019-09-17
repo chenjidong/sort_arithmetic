@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.cjd.demo_arithmetic.data.BaseSort;
 import com.cjd.demo_arithmetic.data.BubbleSort;
 import com.cjd.demo_arithmetic.data.InsertionSort;
+import com.cjd.demo_arithmetic.data.MergeSort;
 import com.cjd.demo_arithmetic.data.SelectionSort;
 import com.cjd.demo_arithmetic.data.ShellSort;
 
@@ -65,6 +66,8 @@ public class SortActivity extends BaseActivity {
             baseSort = new InsertionSort();
         } else if (TextUtils.equals("shell", sort)) {
             baseSort = new ShellSort();
+        }else if (TextUtils.equals("merge", sort)) {
+            baseSort = new MergeSort();
         }
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle(baseSort.title());
