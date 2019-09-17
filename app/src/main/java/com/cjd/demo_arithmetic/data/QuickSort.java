@@ -3,7 +3,8 @@ package com.cjd.demo_arithmetic.data;
 /**
  * @Author chenjidong
  * @data 2019/9/17.
- * @Description:
+ * @Description
+ * @Link https://www.jianshu.com/p/3274f93361d3
  **/
 public class QuickSort extends BaseSort {
     int count = 0;

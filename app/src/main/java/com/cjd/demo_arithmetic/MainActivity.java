@@ -68,6 +68,11 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("sort", "quick");
         startActivity(intent);
     }
+    public void jumpCountSort(View view) {
+        Intent intent = new Intent(MainActivity.this, SortActivity.class);
+        intent.putExtra("sort", "count");
+        startActivity(intent);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.cjd.demo_arithmetic.data.BaseSort;
 import com.cjd.demo_arithmetic.data.BubbleSort;
+import com.cjd.demo_arithmetic.data.CountSort;
 import com.cjd.demo_arithmetic.data.InsertionSort;
 import com.cjd.demo_arithmetic.data.MergeSort;
 import com.cjd.demo_arithmetic.data.QuickSort;
@@ -71,6 +72,8 @@ public class SortActivity extends BaseActivity {
             baseSort = new MergeSort();
         } else if (TextUtils.equals("quick", sort)) {
             baseSort = new QuickSort();
+        } else if (TextUtils.equals("count", sort)) {
+            baseSort = new CountSort();
         }
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle(baseSort.title());
