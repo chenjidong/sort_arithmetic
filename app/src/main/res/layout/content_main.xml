@@ -64,4 +64,11 @@
         android:text="计数排序">
 
     </Button>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="jumpBucketSort"
+        android:text="桶排序" />
+
 </LinearLayout>

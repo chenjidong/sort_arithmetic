@@ -23,6 +23,7 @@ public class BubbleSort extends BaseSort {
                     arr[j + 1] = temp;
                     flag = true;
                 }
+                print(arr);
             }
             count++;
             callback(arr, count);
