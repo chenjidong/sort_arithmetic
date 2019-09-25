@@ -19,6 +19,7 @@ import com.cjd.demo_arithmetic.data.CountSort;
 import com.cjd.demo_arithmetic.data.InsertionSort;
 import com.cjd.demo_arithmetic.data.MergeSort;
 import com.cjd.demo_arithmetic.data.QuickSort;
+import com.cjd.demo_arithmetic.data.RadixSort;
 import com.cjd.demo_arithmetic.data.SelectionSort;
 import com.cjd.demo_arithmetic.data.ShellSort;
 
@@ -77,7 +78,10 @@ public class SortActivity extends BaseActivity {
             baseSort = new CountSort();
         } else if (TextUtils.equals("bucket", sort)) {
             baseSort = new BucketSort();
+        } else if (TextUtils.equals("radix", sort)) {
+            baseSort = new RadixSort();
         }
+
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle(baseSort.title());
         }

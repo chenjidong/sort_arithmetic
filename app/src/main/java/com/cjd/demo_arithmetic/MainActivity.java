@@ -80,6 +80,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void jumpRadixSort(View view) {
+        Intent intent = new Intent(MainActivity.this, SortActivity.class);
+        intent.putExtra("sort", "radix");
+        startActivity(intent);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

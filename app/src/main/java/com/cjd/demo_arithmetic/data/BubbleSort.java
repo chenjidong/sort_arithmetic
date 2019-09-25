@@ -24,9 +24,10 @@ public class BubbleSort extends BaseSort {
                     flag = true;
                 }
                 print(arr);
+                count++;
+                callback(arr, count);
             }
-            count++;
-            callback(arr, count);
+
 
             if (!flag) {
                 break;
